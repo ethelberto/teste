@@ -111,3 +111,26 @@ GIT comandos:
 
 	git pull
 		git pull origin master
+
+
+-------
+
+Prática:
+No Github cria a pasta
+Pega a URL no botão Code na pastas
+no Git 
+   git clone URL obtida no github
+
+No Git
+Cria uma pasta
+no Git:
+    git add *
+    git commit
+Com o Github aberto no navegador
+no Git:
+    git push
+
+Se quiser obter do github
+no Git:
+    git pull
+   
