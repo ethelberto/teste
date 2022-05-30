@@ -1,0 +1,113 @@
+GIT - Software de Versionamento distribuído
+
+Entrar no propt do window -> CMD
+
+Função    		Windows    Linus
+Listar   	  	dir         ls
+Mudar dir     	cd          cd 
+voltar dir        cd ..       cd ..
+Limpar tela		cls		clear (ou CTRL + L)
+Criar Dir		mkdir		mkdir
+Exibir saida	echo 		echo
+			echo xxx > xxx.txt
+Excluir arquivos	del		
+Excluir dir		rmdir		rm -rf (deleta todas as pastas dentro)
+Mover arquivos			mv
+			mv texto.txt ./destino/
+
+
+* Tecla de atalho - TAB - Autocompletar
+                    Seta para cima - retorna últimos comandos
+
+Instalando GIT -> git-scm.com
+
+SHA1 - Security HASH Algorithms
+    
+openssl sha1 texto.txt
+
+BLOBs:  Blocos básicos de dados
+------
+
+echo 'conteudo' | git has-object --stdin   - produz um hash x
+
+echo -e 'conteudo' | openss1 sha1          - produz um hash y
+echo -e 'blob 9\0conteudo' | openss1 sha1  - produz um hash x 
+
+TREEs: Blobs e outras árvores
+------
+
+COMMITs:  Aponta para uma árvore, o último commit, autor e mensagem.
+-------
+   * possui um timestamp
+
+Chave SSH: Forma segura e encriptada de se conectar duas máquinas
+==========
+   Tem uma chave pública e uma chave privada
+
+   Criar a chave SSH no desktop:
+	ssh-keygen -t ed25519 -C ethelberto_ribeiro@yahoo.com.br
+
+		informar senha
+
+		Criou em /c/Users/diasc/.ssh/id_ed25519
+
+		cd /c/Users/diasc/.ssh/
+
+		cat id_ed25519.pub
+			lista a chave que está dentro deste arquivo
+
+		Criado a nova chave SSH no Github
+
+		de novo no desktop:
+			eval $(ssh-agent -s)
+
+			ssh-add id_ed25519
+		
+			informar senha
+GIT comandos:
+-------------
+	git init  ->  Inicializa o Git na pasta
+		Ele cria uma pasta oculta .git que faz todo o controle de versionamento
+		Para enxergar esta pasta: ls -a
+		Inicializa o repositório.
+			Repositório
+
+	Na primeira vez que usa o GIT é necessario fazer alguma configurações:
+		git config --global user.email "ethelberto_ribeiro@yahoo.com.br"
+			Setando de forma global, poderia ser somente o diretório.
+		git config --global user.name ethelberto
+
+		git config --list
+
+		git config --global unset user.email
+
+	git add
+		git add *   ou por exemplo: git add feijoada.md receitas/
+			moveu as informações para a área de stage para serem rastreadas
+		git commit -m "commit inicial"
+			guardou uma visão da situação atual
+			git commit -m "cria pasta receitas, move arq. para receitas"
+		
+	git status
+		Informa o status do repositório
+
+	git restore
+		git restore --staged <file>
+		Retorna para a área untracked
+
+      git remote
+		git remote add origin https://github.com/ethelberto/aprender.git
+
+		git remote -v 
+
+		git branch -M main
+		
+
+	git push
+		git push -u origin main
+
+	git clone
+		git clone chave-gerada-na-opcao-clone-do-github
+
+	git pull
+		git pull origin master
